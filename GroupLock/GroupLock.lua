@@ -45,6 +45,7 @@ local popupSetupDone = false
 local popupHooked = false
 local itemRefAddButton
 local itemRefTooltipHooked = false
+local ICON_TEXTURE = "Interface\\Icons\\Ability_TownWatch" -- stylized spyglass/group icon
 
 local UpdateWhitelistDisplay
 local AddToWhitelist
@@ -527,6 +528,10 @@ ApplyElvUISkin = function()
         closeButton:Show()
     end
 
+    if configFrame.portrait then
+        configFrame.portrait:SetTexture(ICON_TEXTURE)
+    end
+
     ResizeConfigFrame()
 end
 
@@ -750,7 +755,7 @@ CreateConfigFrame = function()
     closeButton:Show()
 
     if configFrame.portrait then
-        SetPortraitTexture(configFrame.portrait, "player")
+        configFrame.portrait:SetTexture(ICON_TEXTURE)
     end
 
     descriptionText = configFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
@@ -874,6 +879,9 @@ CreateConfigFrame = function()
             closeButton:SetFrameLevel(configFrame:GetFrameLevel() + 10)
             closeButton:SetFrameStrata("MEDIUM")
             closeButton:Show()
+        end
+        if configFrame.portrait then
+            configFrame.portrait:SetTexture(ICON_TEXTURE)
         end
         ResizeConfigFrame()
         ApplyElvUISkin()
