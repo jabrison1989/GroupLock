@@ -16,11 +16,7 @@ Group Lock is a lightweight World of Warcraft 3.3.5a addon tailored for Project 
 1. Download or clone this repository.
 2. Copy the `GroupLock` folder into your Ascension AddOns directory, e.g.:
    ```
-   D:\Games\Ascension\Interface\AddOns\GroupLock
-   ```
-   You can automate this step by running the included helper script:
-   ```
-   python3 build.py --dest "D:\Games\Ascension\Interface\AddOns"
+   Ascension\Interface\AddOns\GroupLock
    ```
 3. Launch (or `/reload`) the Ascension client and ensure `Group Lock` is enabled in the AddOns list.
 
