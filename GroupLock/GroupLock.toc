@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: Group Lock
+## Notes: Auto-declines party invites based on whitelist, friends, and guild settings.
+## Author: Project Ascension Tools
+## Version: 1.0.0
+## SavedVariablesPerCharacter: GroupLockDB
+GroupLock.lua
