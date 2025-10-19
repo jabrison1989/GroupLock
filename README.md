@@ -2,6 +2,9 @@
 
 Group Lock is a lightweight World of Warcraft 3.3.5a addon tailored for Project Ascension. It protects you from unwanted party invites by auto-declining players who are not explicitly trusted.
 
+<img width="466" height="511" alt="image" src="https://github.com/user-attachments/assets/e7db5d87-d5d9-4c42-8f90-1f8266f57f05" />
+
+
 ## Features
 - Auto-decline group invites from strangers while letting friends, guildmates, and whitelisted players through.
 - Per-character settings (saved variables) so each character can keep a tailored rule set.
