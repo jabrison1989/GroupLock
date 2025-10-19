@@ -13,7 +13,6 @@ Group Lock is a lightweight World of Warcraft 3.3.5a addon tailored for Project 
 - Right-click context menu item (`Add to GroupLock Whitelist`) for player frames, unit frames, raid frames, and chat roster entries.
 - Chat link integration: left-click a player name in chat and press the prompt button to whitelist instantly.
 - Live sync with the friends list and guild roster to pick up changes without a reload.
-- Python helper script (`build.py`) to deploy the addon into your Ascension AddOns directory in one command.
 
 ## Installation
 1. Download or clone this repository.
