@@ -1,37 +1,134 @@
 # Group Lock (Project Ascension)
 
-Group Lock is a lightweight World of Warcraft 3.3.5a addon tailored for Project Ascension. It protects you from unwanted party invites by auto-declining players who are not explicitly trusted.
+A lightweight World of Warcraft 3.3.5a addon for Project Ascension that automatically declines unwanted group invites based on trust rules, whitelist management, and live roster checks.
 
-<img width="466" height="511" alt="image" src="https://github.com/user-attachments/assets/e7db5d87-d5d9-4c42-8f90-1f8266f57f05" />
+<img width="466" height="511" alt="image" src="https://github.com/user-attachments/assets/e5b2c96c-5a1a-4880-907b-7c43fae61291" />
 
+
+---
+
+## Problem
+
+In social MMO environments, unsolicited party invites can be disruptive. Players need a lightweight way to control who can invite them without manually declining every request.
+
+---
+
+## Solution
+
+Group Lock provides a rule-driven invite filter that automatically accepts trusted sources and declines everyone else.
+
+The addon supports per-character settings, dynamic whitelist management, and integration with in-game social systems such as friends, guild rosters, chat links, and context menus.
+
+---
+
+## Why It Matters
+
+This project demonstrates several engineering patterns beyond game modding:
+
+* Rule-based access control using trusted identity sources
+* Event-driven UI behavior within a constrained runtime environment
+* Per-user configuration and state persistence
+* Multi-surface integration across chat, unit frames, and context menus
+* Designing lightweight automation around user experience pain points
+
+Although built as a game addon, the same patterns apply to workflow tooling, allowlist systems, and user-facing automation.
+
+---
 
 ## Features
-- Auto-decline group invites from strangers while letting friends, guildmates, and whitelisted players through.
-- Per-character settings (saved variables) so each character can keep a tailored rule set.
-- Slash command `/glock` to open a configuration panel that re-skins itself automatically when ElvUI is present.
-- Scrollable whitelist manager with inline add/remove controls and dynamic window sizing.
-- Right-click context menu item (`Add to GroupLock Whitelist`) for player frames, unit frames, raid frames, and chat roster entries.
-- Chat link integration: left-click a player name in chat and press the prompt button to whitelist instantly.
-- Live sync with the friends list and guild roster to pick up changes without a reload.
+
+* Auto-decline group invites from untrusted players
+* Allow trusted invites from:
+
+  * Friends
+  * Guild members
+  * Whitelisted players
+* Per-character saved settings
+* Slash command (`/glock`) configuration panel
+* Dynamic UI behavior with ElvUI-aware styling
+* Scrollable whitelist manager with inline add/remove controls
+* Right-click menu integration for player, unit, raid, and chat roster targets
+* Chat-link workflow for rapid whitelisting
+* Live synchronization with friends list and guild roster without requiring a reload
+
+---
+
+## Key Design Decisions
+
+* Whitelist-based trust model for predictable behavior
+* Per-character persistence to support different play styles or roles
+* UI integration across multiple in-game interaction points
+* Lightweight automation to reduce repetitive manual actions
+* Compatibility-aware behavior for improved user experience in ElvUI environments
+
+---
 
 ## Installation
-1. Download or clone this repository.
-2. Copy the `GroupLock` folder into your Ascension AddOns directory, e.g.:
-   ```
-   Ascension\Interface\AddOns\GroupLock
-   ```
-3. Launch (or `/reload`) the Ascension client and ensure `Group Lock` is enabled in the AddOns list.
+
+1. Clone or download this repository
+2. Copy the `GroupLock` folder into your AddOns directory:
+
+```id="gl1"
+Ascension\Interface\AddOns\GroupLock
+```
+
+3. Launch the client (or run `/reload`)
+4. Ensure **Group Lock** is enabled in the AddOns list
+
+---
 
 ## Usage
-- Type `/glock` in-game to open the control window.
-- Toggle whether friends and/or guild members bypass the decline rule.
-- Add people to the whitelist by:
-  - Typing their name into the field and pressing **Add**.
-  - Choosing **Add to GroupLock Whitelist** from a player’s right-click menu.
-  - Left-clicking a player name in chat and hitting the **Whitelist** button beneath the tooltip.
-- Remove entries by clicking the `X` beside their name inside the whitelist list.
 
-Whenever you change options the addon immediately saves them for the current character. Invites from anyone not allowed by your settings are declined automatically, and a short message is printed in chat so you know who was blocked.
+1. Type `/glock` to open the configuration window
+2. Choose whether friends and/or guild members bypass invite blocking
+3. Add players to the whitelist by:
+
+   * entering a name manually
+   * using the right-click menu option
+   * clicking a player name in chat and confirming via the prompt button
+4. Remove players from the whitelist using the inline `X` controls
+
+Settings are saved immediately for the current character. Invites from players who do not match the configured trust rules are declined automatically, and a short message is printed to chat for visibility.
+
+---
+
+## Example Use Case
+
+A player wants to avoid unwanted group invites while still allowing trusted social connections through. Group Lock automates that decision process by checking whether the inviter is:
+
+* on the friends list
+* in the guild roster
+* on the explicit whitelist
+
+If none of those conditions are met, the invite is declined automatically.
+
+---
+
+## Limitations / Tradeoffs
+
+This addon is intentionally lightweight and focused on invite filtering. It does not attempt to provide:
+
+* broader social moderation features
+* account-wide trust synchronization
+* cross-realm logic beyond what the client environment exposes
+* server-side enforcement
+
+Its purpose is to solve one repetitive user problem cleanly and with minimal friction.
+
+---
 
 ## Contributing
-Comments have been added throughout `GroupLock/GroupLock.lua` to explain the main systems and entry points. If you would like to contribute, feel free to submit pull requests or file issues describing bugs or enhancements. Suggestions for additional integrations with Ascension-specific systems are very welcome!
+
+Comments are included throughout `GroupLock/GroupLock.lua` to explain the main systems and entry points.
+
+Pull requests and issue reports are welcome, especially for:
+
+* bug fixes
+* UI improvements
+* additional Project Ascension integrations
+
+---
+
+## Author
+
+Jacob Brison
